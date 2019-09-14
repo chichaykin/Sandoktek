@@ -1,6 +1,7 @@
 package com.sandoktek.ui.login
 
 import android.app.Activity
+import android.content.Intent
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -14,6 +15,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
+import com.sandoktek.CreateAccountActivity
+import com.sandoktek.HomeActivity
 
 import com.sandoktek.R
 
@@ -30,6 +33,11 @@ class LoginActivity : AppCompatActivity() {
         val password = findViewById<EditText>(R.id.password)
         val login = findViewById<Button>(R.id.login)
         val loading = findViewById<ProgressBar>(R.id.loading)
+        val creating = findViewById<Button>(R.id.create)
+
+        creating.setOnClickListener {
+            createActivity()
+        }
 
         loginViewModel = ViewModelProviders.of(this, LoginViewModelFactory())
             .get(LoginViewModel::class.java)
@@ -59,6 +67,9 @@ class LoginActivity : AppCompatActivity() {
                 updateUiWithUser(loginResult.success)
             }
             setResult(Activity.RESULT_OK)
+
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
 
             //Complete and destroy login activity once successful
             finish()
@@ -95,6 +106,11 @@ class LoginActivity : AppCompatActivity() {
                 loginViewModel.login(username.text.toString(), password.text.toString())
             }
         }
+    }
+
+    private fun createActivity() {
+        val intent = Intent(this, CreateAccountActivity::class.java)
+        startActivity(intent)
     }
 
     private fun updateUiWithUser(model: LoggedInUserView) {
