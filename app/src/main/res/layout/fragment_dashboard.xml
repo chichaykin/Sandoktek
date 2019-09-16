@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="15dp"
+    android:layout_margin="20dp"
+    android:layout_gravity="center|fill_vertical"
     android:orientation="vertical">
 
     <TextView
@@ -15,52 +16,32 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="20sp" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:layout_gravity="center_horizontal"
-        android:orientation="horizontal">
+        android:text="Pay by phone" />
 
-        <Button
-            android:id="@+id/payToMe"
-            android:layout_width="170dp"
-            android:layout_height="100dp"
-            android:text="Receive payment of point of sale"
-            />
-
-        <Button
-            android:id="@+id/sendPayment"
-            android:layout_width="170dp"
-            android:layout_height="100dp"
-            android:text="Sent payment" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:layout_gravity="center_horizontal"
-        android:orientation="horizontal">
+        android:text="Pay Utilities" />
 
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="150dp"
-            android:layout_height="100dp"
-            android:text="Pay Utilities" />
+    <Button
+        android:id="@+id/sendPayment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sent payment" />
 
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="150dp"
-            android:layout_height="100dp"
-            android:text="Pay by phone"
-             />
-    </LinearLayout>
+    <Button
+        android:id="@+id/payToMe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableBottom="@drawable/qrcode_scan"
+        android:text="Receive payment of point of sale" />
 
 </LinearLayout>

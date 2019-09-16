@@ -8,6 +8,7 @@ import kotlinx.android.synthetic.main.activity_create_acount.*
 
 class CreateAccountActivity : AppCompatActivity() {
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_acount)
@@ -19,6 +20,17 @@ class CreateAccountActivity : AppCompatActivity() {
                 createAccount.isEnabled = (it == password1.text.toString())
             }
         }
+
+        scan.apply {
+            setOnClickListener {
+                scanActivity()
+            }
+        }
+    }
+
+    private fun scanActivity() {
+        val intent = Intent(this, CameraActivity::class.java)
+        startActivity(intent)
     }
 
     private fun startMainActivity() {
